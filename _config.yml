@@ -101,3 +101,4 @@ deploy:
   type: git
   repo: git@github.com:rochan88/blog.git
   branch: gh-pages
+  message: "Site updated: auto"
