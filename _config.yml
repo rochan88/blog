@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Hi Blog
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Roc han
+language: zh-CN
 timezone: ''
 
 # URL
@@ -93,7 +93,14 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+## theme: landscape
+##theme: volantis
+##theme: landscape
+#theme: next6
+theme: next
+#theme: varaint
+#theme: primer
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
