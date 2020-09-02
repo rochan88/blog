@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.rockhan.com","root":"/","scheme":"Gemini","darkmode":true,"version":"0.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"since":"2019-12-22T00:00:00.000Z","copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"favicon":{"visibilitychange":true,"narmal":"/images/favicon.ico","hidden":"/images/failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="💥 Breaking ChangesAdd order for theme_inject (#1136)Redesigned the sequential configuration of the multi-comment system, which was originally introduced in #1048 of New Features section below. Click">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NexT 7.4.0 Released">
+<meta property="og:url" content="http://blog.rockhan.com/2019/09/01/next-7-4-0-released/index.html">
+<meta property="og:site_name" content="Hi, My Blog">
+<meta property="og:description" content="💥 Breaking ChangesAdd order for theme_inject (#1136)Redesigned the sequential configuration of the multi-comment system, which was originally introduced in #1048 of New Features section below. Click">
+<meta property="article:published_time" content="2019-08-31T18:08:13.000Z">
+<meta property="article:modified_time" content="2020-03-10T11:04:27.262Z">
+<meta property="article:author" content="PZHan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.rockhan.com/2019/09/01/next-7-4-0-released/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>NexT 7.4.0 Released | Hi, My Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hi, My Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-news">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-info-circle"></i>News</a>
+
+  </li>
+
+      
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-fw fa-book"></i>Docs</a>
+
+  </li>
+
+
+        
+      
+
+      
+  </ul>
+
+</nav>
+
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <!--div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi, My Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div-->
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-meta">
+
+  <div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hi, My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+</div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://blog.rockhan.com/2019/09/01/next-7-4-0-released/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PZHan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, My Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NexT 7.4.0 Released
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-01 02:08:13" itemprop="dateCreated datePublished" datetime="2019-09-01T02:08:13+08:00">2019-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-10 19:04:27" itemprop="dateModified" datetime="2020-03-10T19:04:27+08:00">2020-03-10</time>
+              </span>
+
+          
+            <span id="/2019/09/01/next-7-4-0-released/" class="post-meta-item leancloud_visitors" data-flag-title="NexT 7.4.0 Released" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/09/01/next-7-4-0-released/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/01/next-7-4-0-released/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="💥-Breaking-Changes"><a href="#💥-Breaking-Changes" class="headerlink" title="💥 Breaking Changes"></a>💥 Breaking Changes</h2><h3 id="Add-order-for-theme-inject-1136"><a href="#Add-order-for-theme-inject-1136" class="headerlink" title="Add order for theme_inject (#1136)"></a>Add order for theme_inject (<a href="https://github.com/theme-next/hexo-theme-next/pull/1136" target="_blank" rel="noopener">#1136</a>)</h3><p>Redesigned the sequential configuration of the multi-comment system, which was originally introduced in #1048 of <code>New Features</code> section below.</p>
+<details><summary>Click to see configuration's changes</summary><p>
+
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Multiple Comment System Support</span><br><span class="line">comments:</span><br><span class="line">  # Available values: tabs | buttons</span><br><span class="line">  style: tabs</span><br><span class="line">  # Choose a comment system to be displayed by default.</span><br><span class="line">  # Available values: changyan | disqus | disqusjs | facebook_comments_plugin | gitalk | livere | valine | vkontakte</span><br><span class="line">  active:</span><br><span class="line">  # Setting `true` means remembering the comment system selected by the visitor.</span><br><span class="line">  storage: true</span><br><span class="line">  # Modify texts or order for any navs, here are some examples.</span><br><span class="line">  nav:</span><br><span class="line"><span class="deletion">-    #disqus: disqus</span></span><br><span class="line"><span class="deletion">-    #facebook_comments_plugin: &lt;i class="fa fa-facebook-official" aria-hidden="true"&gt;&lt;/i&gt; facebook</span></span><br><span class="line"><span class="deletion">-    #gitalk: Load Gitalk</span></span><br><span class="line"><span class="addition">+    #disqus:</span></span><br><span class="line"><span class="addition">+    #  text: Load Disqus</span></span><br><span class="line"><span class="addition">+    #  order: -1</span></span><br><span class="line"><span class="addition">+    #facebook_comments_plugin:</span></span><br><span class="line"><span class="addition">+    #  text: &lt;i class="fa fa-facebook-official" aria-hidden="true"&gt;&lt;/i&gt; facebook</span></span><br><span class="line"><span class="addition">+    #gitalk:</span></span><br></pre></td></tr></table></figure>
+
+</p></details>
+
+<h3 id="Extract-all-share-systems-to-plugins-1104"><a href="#Extract-all-share-systems-to-plugins-1104" class="headerlink" title="Extract all share systems to plugins (#1104)"></a>Extract all share systems to plugins (<a href="https://github.com/theme-next/hexo-theme-next/pull/1104" target="_blank" rel="noopener">#1104</a>)</h3><blockquote>
+<p>See the <a href="https://github.com/theme-next/hexo-theme-next/pull/1104/files?file-filters%5B%5D=.yml#diff-aeb42283af8ef8e9da40ededd3ae2ab2" target="_blank" rel="noopener">diff</a> (mostly deletion) of <code>_config.yml</code></p>
+</blockquote>
+<p>Now share systems come with plugin <a href="https://github.com/theme-next/hexo-next-share" target="_blank" rel="noopener" title="theme-next/hexo-next-share: Content sharing services for NexT.">hexo-next-share</a>.</p>
+<p>Latest docs can be found at <a href="https://theme-next.org/docs/third-party-services/post-widgets" target="_blank" rel="noopener" title="Post Widgets | NexT">Post Widgets</a> and <a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics" target="_blank" rel="noopener" title="Statistics and Analytics | NexT">Statistics and Analytics</a>.</p>
+<h3 id="Refactor-vendors-1081"><a href="#Refactor-vendors-1081" class="headerlink" title="Refactor vendors (#1081)"></a>Refactor vendors (<a href="https://github.com/theme-next/hexo-theme-next/pull/1081" target="_blank" rel="noopener">#1081</a>)</h3><details><summary>Click to see configuration's changes</summary><p>
+
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line"><span class="deletion">-  engine: mathjax</span></span><br><span class="line"><span class="deletion">-  #engine: katex</span></span><br><span class="line">  mathjax:</span><br><span class="line"><span class="deletion">-    cdn: //cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></span><br><span class="line"><span class="deletion">-    #cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML</span></span><br><span class="line"><span class="addition">+    enable: false</span></span><br><span class="line"><span class="deletion">-    #mhchem: //cdn.jsdelivr.net/npm/mathjax-mhchem@3</span></span><br><span class="line"><span class="deletion">-    #mhchem: //cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0</span></span><br><span class="line"><span class="addition">+    mhchem: false</span></span><br><span class="line">  katex:</span><br><span class="line"><span class="deletion">-    cdn: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css</span></span><br><span class="line"><span class="deletion">-    #cdn: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css</span></span><br><span class="line"><span class="addition">+    enable: false</span></span><br><span class="line"><span class="deletion">-    copy_tex:</span></span><br><span class="line"><span class="deletion">-      enable: false</span></span><br><span class="line"><span class="deletion">-      copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js</span></span><br><span class="line"><span class="deletion">-      copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css</span></span><br><span class="line"><span class="addition">+    copy_tex: false</span></span><br><span class="line"></span><br><span class="line">pdf:</span><br><span class="line"><span class="deletion">-  pdfobject:</span></span><br><span class="line"><span class="deletion">-    cdn: //cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js</span></span><br><span class="line"><span class="deletion">-    #cdn: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js</span></span><br><span class="line"></span><br><span class="line">mermaid:</span><br><span class="line"><span class="deletion">-  cdn: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js</span></span><br><span class="line"><span class="deletion">-  #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js</span></span><br><span class="line"></span><br><span class="line">vendors:</span><br><span class="line"><span class="addition">+  mathjax:</span></span><br><span class="line"><span class="addition">+  mhchem:</span></span><br><span class="line"><span class="addition">+  katex:</span></span><br><span class="line"><span class="addition">+  copy_tex_js:</span></span><br><span class="line"><span class="addition">+  copy_tex_css:</span></span><br><span class="line"><span class="addition">+  pdfobject:</span></span><br><span class="line"><span class="addition">+  mermaid:</span></span><br></pre></td></tr></table></figure>
+
+</p></details>
+
+<h3 id="Remove-full-image-tag-1053"><a href="#Remove-full-image-tag-1053" class="headerlink" title="Remove full-image tag (#1053)"></a>Remove full-image tag (<a href="https://github.com/theme-next/hexo-theme-next/pull/1053" target="_blank" rel="noopener">#1053</a>)</h3><h2 id="🌟-New-Features"><a href="#🌟-New-Features" class="headerlink" title="🌟 New Features"></a>🌟 New Features</h2><ul>
+<li>Add multi-comments (<a href="https://github.com/theme-next/hexo-theme-next/pull/1048" target="_blank" rel="noopener">#1048</a>)</li>
+<li>PJAX support (<a href="https://github.com/theme-next/hexo-theme-next/pull/1024" target="_blank" rel="noopener">#1024</a>)</li>
+</ul>
+<h2 id="⭐-Features"><a href="#⭐-Features" class="headerlink" title="⭐ Features"></a>⭐ Features</h2><ul>
+<li>Expand beian options for users in mainland China (<a href="https://github.com/theme-next/hexo-theme-next/pull/1121" target="_blank" rel="noopener">#1121</a>)</li>
+<li>Add color option for bookmark (<a href="https://github.com/theme-next/hexo-theme-next/pull/1112" target="_blank" rel="noopener">#1112</a>)</li>
+<li>Extract bookmark / save_scroll to plugins (<a href="https://github.com/theme-next/hexo-theme-next/pull/1106" target="_blank" rel="noopener">#1106</a>)</li>
+<li>Refactor reading-progress (<a href="https://github.com/theme-next/hexo-theme-next/pull/1100" target="_blank" rel="noopener">#1100</a>)</li>
+<li>Remove post type quote &amp; picture (<a href="https://github.com/theme-next/hexo-theme-next/pull/1099" target="_blank" rel="noopener">#1099</a>)</li>
+<li>Show year devision in category or tag page (<a href="https://github.com/theme-next/hexo-theme-next/pull/1061" target="_blank" rel="noopener">#1061</a>)</li>
+</ul>
+<h2 id="🛠-Improvements"><a href="#🛠-Improvements" class="headerlink" title="🛠 Improvements"></a>🛠 Improvements</h2><ul>
+<li>Refactor sidebar motion (<a href="https://github.com/theme-next/hexo-theme-next/pull/1128" target="_blank" rel="noopener">#1128</a>)</li>
+<li>Reimplement Bootstrap Affix (<a href="https://github.com/theme-next/hexo-theme-next/pull/1130" target="_blank" rel="noopener">#1130</a>)</li>
+<li>Make CSS selectors and dimensional calculations more robust (<a href="https://github.com/theme-next/hexo-theme-next/pull/1124" target="_blank" rel="noopener">#1124</a>)</li>
+<li>Refactor links-of-blogroll-item (<a href="https://github.com/theme-next/hexo-theme-next/pull/1119" target="_blank" rel="noopener">#1119</a>)</li>
+<li>Make sidebar toc &amp; PJAX loading faster (<a href="https://github.com/theme-next/hexo-theme-next/pull/1113" target="_blank" rel="noopener">#1113</a>)</li>
+<li>New helper next-vendors (<a href="https://github.com/theme-next/hexo-theme-next/pull/1105" target="_blank" rel="noopener">#1105</a>)</li>
+<li>Add next_inject helper (<a href="https://github.com/theme-next/hexo-theme-next/pull/1098" target="_blank" rel="noopener">#1098</a>)</li>
+<li>Add next_js helper (<a href="https://github.com/theme-next/hexo-theme-next/pull/1096" target="_blank" rel="noopener">#1096</a>)</li>
+<li>Refactor auto excerpt (<a href="https://github.com/theme-next/hexo-theme-next/pull/1080" target="_blank" rel="noopener">#1080</a>)</li>
+<li>Fix several bugs reported in v7.3 (<a href="https://github.com/theme-next/hexo-theme-next/pull/1060" target="_blank" rel="noopener">#1060</a>)</li>
+<li>Optimize the loading of exturl (<a href="https://github.com/theme-next/hexo-theme-next/pull/1076" target="_blank" rel="noopener">#1076</a>)</li>
+<li>Optimize the rendering of post (<a href="https://github.com/theme-next/hexo-theme-next/pull/1075" target="_blank" rel="noopener">#1075</a>)</li>
+<li>Improve the style of firebase analytics and post-meta (<a href="https://github.com/theme-next/hexo-theme-next/pull/1056" target="_blank" rel="noopener">#1056</a>)</li>
+<li>Need more cache 2 (<a href="https://github.com/theme-next/hexo-theme-next/pull/1051" target="_blank" rel="noopener">#1051</a>)</li>
+<li>Refactor custom pages (<a href="https://github.com/theme-next/hexo-theme-next/pull/1045" target="_blank" rel="noopener">#1045</a>)</li>
+<li>Reorganize the structure of <code>generateBefore</code> (<a href="https://github.com/theme-next/hexo-theme-next/pull/1043" target="_blank" rel="noopener">#1043</a>)</li>
+<li>Obey Stylint rules (<a href="https://github.com/theme-next/hexo-theme-next/pull/1037" target="_blank" rel="noopener">#1037</a>)</li>
+<li>Arrow function expression (<a href="https://github.com/theme-next/hexo-theme-next/pull/1003" target="_blank" rel="noopener">#1003</a>)</li>
+<li>Refactor lint / tests / bower (<a href="https://github.com/theme-next/hexo-theme-next/pull/1041" target="_blank" rel="noopener">#1041</a>)</li>
+</ul>
+<h2 id="🐞-Bug-Fixes"><a href="#🐞-Bug-Fixes" class="headerlink" title="🐞 Bug Fixes"></a>🐞 Bug Fixes</h2><ul>
+<li>IntersectionObserver about TOC (<a href="https://github.com/theme-next/hexo-theme-next/pull/1125" target="_blank" rel="noopener">#1125</a>)</li>
+<li>Fix PJAX refresh bugs when search / fancybox enabled (<a href="https://github.com/theme-next/hexo-theme-next/pull/1111" target="_blank" rel="noopener">#1111</a>)</li>
+<li>Fix space after comment count (<a href="https://github.com/theme-next/hexo-theme-next/pull/1101" target="_blank" rel="noopener">#1101</a>)</li>
+<li>Use insertAdjacentHTML instead of appendChild (<a href="https://github.com/theme-next/hexo-theme-next/pull/1102" target="_blank" rel="noopener">#1102</a>)</li>
+<li>Fix leancloud counter bug (<a href="https://github.com/theme-next/hexo-theme-next/pull/1093" target="_blank" rel="noopener">#1093</a>)</li>
+<li>Strange bug with symlinked <code>next</code> dir (<a href="https://github.com/theme-next/hexo-theme-next/pull/1062" target="_blank" rel="noopener">#1062</a>)</li>
+<li>Fix issues caused by PJAX (<a href="https://github.com/theme-next/hexo-theme-next/pull/1057" target="_blank" rel="noopener">#1057</a>)</li>
+<li>Fix codeblock diff highlight bug (<a href="https://github.com/theme-next/hexo-theme-next/pull/1047" target="_blank" rel="noopener">#1047</a>)</li>
+<li>Refactor inject style path (<a href="https://github.com/theme-next/hexo-theme-next/pull/1044" target="_blank" rel="noopener">#1044</a>)</li>
+<li>Fix bugs caused by <code>this</code> and optimize the loading of cheerio (<a href="https://github.com/theme-next/hexo-theme-next/pull/1042" target="_blank" rel="noopener">#1042</a>)</li>
+<li>Fix affix bug (<a href="https://github.com/theme-next/hexo-theme-next/pull/1039" target="_blank" rel="noopener">#1039</a>)</li>
+</ul>
+<h2 id="🌍-Localization"><a href="#🌍-Localization" class="headerlink" title="🌍 Localization"></a>🌍 Localization</h2><ul>
+<li>New Crowdin translations (<a href="https://github.com/theme-next/hexo-theme-next/pull/1117" target="_blank" rel="noopener">#1117</a>)</li>
+<li>Removed <code>comments_count</code> (<a href="https://github.com/theme-next/hexo-theme-next/pull/1079" target="_blank" rel="noopener">#1079</a>)</li>
+</ul>
+<hr>
+<p>For full changes, see the <a href="https://github.com/theme-next/hexo-theme-next/compare/v7.3.0...v7.4.0" target="_blank" rel="noopener">comparison between v7.3.0 and v7.4.0</a></p>
+<p><a href="https://github.com/theme-next/hexo-theme-next/releases/tag/v7.4.0" target="_blank" rel="noopener">Detailed changes for NexT v7.4.0</a></p>
+
+    </div>
+
+    
+    
+    
+
+
+    
+    <div>
+      
+        <div>
+  
+    <div style="text-align:center;color:#ccc;font-size:14px;">
+    -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+  
+</div>
+      
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="PZHan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="PZHan Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>PZHan
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://blog.rockhan.com/2019/09/01/next-7-4-0-released/" title="NexT 7.4.0 Released">http://blog.rockhan.com/2019/09/01/next-7-4-0-released/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/31/next-7-3-0-released/" rel="prev" title="NexT 7.3.0 Released">
+      <i class="fa fa-chevron-left"></i> NexT 7.3.0 Released
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/01/next-7-4-1-released/" rel="next" title="NexT 7.4.1 Released">
+      NexT 7.4.1 Released <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#💥-Breaking-Changes"><span class="nav-number">1.</span> <span class="nav-text">💥 Breaking Changes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-order-for-theme-inject-1136"><span class="nav-number">1.1.</span> <span class="nav-text">Add order for theme_inject (#1136)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extract-all-share-systems-to-plugins-1104"><span class="nav-number">1.2.</span> <span class="nav-text">Extract all share systems to plugins (#1104)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Refactor-vendors-1081"><span class="nav-number">1.3.</span> <span class="nav-text">Refactor vendors (#1081)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Remove-full-image-tag-1053"><span class="nav-number">1.4.</span> <span class="nav-text">Remove full-image tag (#1053)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🌟-New-Features"><span class="nav-number">2.</span> <span class="nav-text">🌟 New Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⭐-Features"><span class="nav-number">3.</span> <span class="nav-text">⭐ Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🛠-Improvements"><span class="nav-number">4.</span> <span class="nav-text">🛠 Improvements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🐞-Bug-Fixes"><span class="nav-number">5.</span> <span class="nav-text">🐞 Bug Fixes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🌍-Localization"><span class="nav-number">6.</span> <span class="nav-text">🌍 Localization</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PZHan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PZHan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rochan88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rochan88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:rochan@qq.com" title="E-Mail → mailto:rochan@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/592net" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;592net" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/irochan" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;irochan" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.rockhan.com/" title="http:&#x2F;&#x2F;www.rockhan.com" rel="noopener" target="_blank">rockhan</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian">
+      <img src="/uploads/icp.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏ICP备2020050420号 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32030002307146" rel="noopener" target="_blank">京公网安备 32030002307146 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PZHan</span>
+  博客已运行<span id="since"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT</a> v0.0.2
+  </div>
+<script src="/js/since.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+    <div id="aplayer-fixed"></div>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<div class="aplayer">
+<script>
+NexT.utils.loadComments(document.querySelector('#aplayer-fixed'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js', () => {
+    const apFixed = new APlayer({
+      element: document.getElementById('aplayer-fixed'),
+      mutex: true,
+      theme: '#97dffd',
+      order: 'random',
+      lrcType: 3,
+      fixed: true,
+    });
+    $.ajax({
+      url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=3102961863',
+      success: function (list) {
+        //console.log(typeof list);
+        apFixed.list.add(typeof list == 'string' ? JSON.parse(list):list);
+        //apFixed.list.add(JSON.parse(list));
+      }
+    });
+  },window.APlayer);
+});
+</script>
+</div>
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script src="/js/cursor/explosion.min.js"></script>
+
+  
+<script src="/js/FunnyTitle.js"></script>
+
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2MJCVa0G8jleIOwvB3YtyCW6-MdYXbMMI',
+      appKey     : 'N482Hc13XQ1i8n2ubIHE5oLl',
+      placeholder: "写下你的评论……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.rockhan.com","root":"/","scheme":"Gemini","darkmode":true,"version":"0.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"since":"2019-12-22T00:00:00.000Z","copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"favicon":{"visibilitychange":true,"narmal":"/images/favicon.ico","hidden":"/images/failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="NexT User Docs – Advanced Settings">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Advanced Settings">
+<meta property="og:url" content="http://blog.rockhan.com/docs/advanced-settings.html">
+<meta property="og:site_name" content="Hi, My Blog">
+<meta property="og:description" content="NexT User Docs – Advanced Settings">
+<meta property="article:published_time" content="2020-08-22T03:02:02.623Z">
+<meta property="article:modified_time" content="2020-03-10T11:04:27.269Z">
+<meta property="article:author" content="PZHan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.rockhan.com/docs/advanced-settings">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title>Advanced Settings | Hi, My Blog
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hi, My Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-news">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-info-circle"></i>News</a>
+
+  </li>
+
+      
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-fw fa-book"></i>Docs</a>
+
+  </li>
+
+
+        
+      
+
+      
+  </ul>
+
+</nav>
+
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <!--div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi, My Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div-->
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-meta">
+
+  <div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hi, My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+</div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+              
+  <li class="menu-item menu-item-getting-started">
+
+    <a href="/docs/getting-started/" rel="section"><i class="fa fa-fw fa-flag"></i>Getting Started</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-theme-settings">
+
+    <a href="/docs/theme-settings/" rel="section"><i class="fa fa-fw fa-star"></i>Theme Settings</a>
+
+  </li>
+
+
+          
+          
+            
+                
+  <li class="menu-item menu-item-third-party-services">
+
+    <a href="/docs/third-party-services/" rel="section"><i class="fa fa-fw fa-plug"></i>Third Party Services</a>
+
+  </li>
+
+
+          
+              
+  <li class="menu-item menu-item-tag-plugins">
+
+    <a href="/docs/tag-plugins/" rel="section"><i class="fa fa-fw fa-rocket"></i>Tag Plugins</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-advanced-settings">
+
+    <a href="/docs/advanced-settings/" rel="section"><i class="fa fa-fw fa-rocket"></i>Advanced Settings</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-faq's">
+
+    <a href="/docs/faqs/" rel="section"><i class="fa fa-fw fa-life-ring"></i>FAQ's</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-platforms">
+
+    <a href="/docs/platforms/" rel="section"><i class="fa fa-fw fa-retweet"></i>Platforms</a>
+
+  </li>
+
+
+          
+        </ul>
+        
+
+        
+
+                
+                
+        
+      
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-Hans">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Advanced Settings
+</h1>
+
+<div class="post-meta">
+    <div class="post-description">NexT User Docs – Advanced Settings</div>
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>Besides normal <a href="/docs/theme-settings/">Theme Settings</a> and <a href="/docs/third-party-services/">Third-party Services</a>, NexT supports some advanced settings which makes NexT customizable.<br>Please note that those settings may lead to abnormal behavior if they are wrong. Change them only when you know for what they are.</p>
+<h3 id="Third-party-JS-Libraries"><a href="#Third-party-JS-Libraries" class="headerlink" title="Third-party JS Libraries"></a>Third-party JS Libraries</h3><p>This feature is located under <code>vendors</code> section in <span class="label primary">theme config file</span>.<br><code>_internal: lib</code> is used to tell NexT where internal library is located and you shouldn’t change this in most cases.</p>
+<p>And next part is config of each library; if you leave it blank NexT will use internal version. Each config is in format of <code>libname: CDN URL</code>. For example:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">anime:</span> <span class="string">//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js</span></span><br></pre></td></tr></table></figure>
+
+<p>You can set it to a proper CDN URL, which can make static assets (JavaScript Third-party Library) load faster. Now NexT contains following third-party library:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Original Link</th>
+<th>Internal Version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Anime.js</td>
+<td><a href="https://animejs.com" target="_blank" rel="noopener">animejs.com</a></td>
+<td>3.1.0</td>
+</tr>
+<tr>
+<td>FontAwesome</td>
+<td><a href="http://fontawesome.io" target="_blank" rel="noopener">fontawesome.io</a></td>
+<td>4.7.0</td>
+</tr>
+<tr>
+<td>VelocityJS</td>
+<td><a href="http://velocityjs.org" target="_blank" rel="noopener">velocityjs.org</a></td>
+<td>1.2.1</td>
+</tr>
+<tr>
+<td>VelocityJS UI Pack</td>
+<td><a href="http://velocityjs.org/#uiPack" target="_blank" rel="noopener">velocityjs.org/#uiPack</a></td>
+<td>1.2.1</td>
+</tr>
+</tbody></table>
+<p>NexT use the <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a> as the default CDN service provider. The reason that jsDelivr is chosen is because it is fast everywhere, and jsDelivr has the valid ICP license issued by the Chinese government, it can be accessed in China pretty well.</p>
+<p>And we also provide other optional CDNs, including the famous <a href="https://cdnjs.com/" target="_blank" rel="noopener">CDNJS</a>.<br>Particularly, if you are a Chinese blogger or most of your visits come from China, please note that <strong>the CDNJS is blocked in some parts of China</strong>, don’t use it as your CDN.</p>
+<p>If you want to try the other CDNs not included in the optional list, you would better use the corresponding version.<br>«Internal version» is the version that NexT tested and uses. And if you need other versions you need to test them first.</p>
+<figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Script Vendors. Set a CDN address for the vendor you want to customize.</span></span><br><span class="line"><span class="comment"># Be aware that you would better use the same version as internal ones to avoid potential problems.</span></span><br><span class="line"><span class="comment"># Please use the https protocol of CDN files when you enable https on your site.</span></span><br><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="comment"># Internal path prefix. Please do not edit it.</span></span><br><span class="line">  <span class="attr">_internal:</span> <span class="string">lib</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 3.1.0</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js</span></span><br><span class="line">  <span class="attr">anime:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 4.7.0</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css</span></span><br><span class="line">  <span class="comment"># fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</span></span><br><span class="line">  <span class="attr">fontawesome:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># MathJax</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># mathjax: //cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></span><br><span class="line">  <span class="comment"># mathjax: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML</span></span><br><span class="line">  <span class="comment"># mhchem: //cdn.jsdelivr.net/npm/mathjax-mhchem@3</span></span><br><span class="line">  <span class="comment"># mhchem: //cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">mhchem:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># KaTeX</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># katex: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css</span></span><br><span class="line">  <span class="comment"># katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css</span></span><br><span class="line">  <span class="comment"># copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js</span></span><br><span class="line">  <span class="comment"># copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css</span></span><br><span class="line">  <span class="attr">katex:</span></span><br><span class="line">  <span class="attr">copy_tex_js:</span></span><br><span class="line">  <span class="attr">copy_tex_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 0.2.8</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js</span></span><br><span class="line">  <span class="attr">pjax:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># FancyBox</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js</span></span><br><span class="line">  <span class="comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span></span><br><span class="line">  <span class="comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span></span><br><span class="line">  <span class="attr">jquery:</span></span><br><span class="line">  <span class="attr">fancybox:</span></span><br><span class="line">  <span class="attr">fancybox_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Medium-zoom</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js</span></span><br><span class="line">  <span class="attr">mediumzoom:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Lazyload</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js</span></span><br><span class="line">  <span class="comment"># lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js</span></span><br><span class="line">  <span class="attr">lazyload:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Pangu</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js</span></span><br><span class="line">  <span class="comment"># pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js</span></span><br><span class="line">  <span class="attr">pangu:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Quicklink</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js</span></span><br><span class="line">  <span class="attr">quicklink:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># DisqusJS</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># disqusjs_js: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js</span></span><br><span class="line">  <span class="comment"># disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css</span></span><br><span class="line">  <span class="attr">disqusjs_js:</span></span><br><span class="line">  <span class="attr">disqusjs_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Valine</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line">  <span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js</span></span><br><span class="line">  <span class="attr">valine:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Gitalk</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js</span></span><br><span class="line">  <span class="comment"># gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css</span></span><br><span class="line">  <span class="attr">gitalk_js:</span></span><br><span class="line">  <span class="attr">gitalk_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Algolia Search</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js</span></span><br><span class="line">  <span class="comment"># algolia_instant_css: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css</span></span><br><span class="line">  <span class="attr">algolia_instant_js:</span></span><br><span class="line">  <span class="attr">algolia_instant_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># PDF</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># pdfobject: //cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js</span></span><br><span class="line">  <span class="comment"># pdfobject: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js</span></span><br><span class="line">  <span class="attr">pdfobject:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Mermaid</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js</span></span><br><span class="line">  <span class="comment"># mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js</span></span><br><span class="line">  <span class="attr">mermaid:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 1.2.1</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js</span></span><br><span class="line">  <span class="comment"># velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js</span></span><br><span class="line">  <span class="comment"># velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js</span></span><br><span class="line">  <span class="comment"># velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js</span></span><br><span class="line">  <span class="attr">velocity:</span></span><br><span class="line">  <span class="attr">velocity_ui:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 1.0.2</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js</span></span><br><span class="line">  <span class="comment"># pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js</span></span><br><span class="line">  <span class="comment"># pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css</span></span><br><span class="line">  <span class="comment"># pace_css: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css</span></span><br><span class="line">  <span class="attr">pace:</span></span><br><span class="line">  <span class="attr">pace_css:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 1.0.0</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js</span></span><br><span class="line">  <span class="comment"># three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js</span></span><br><span class="line">  <span class="comment"># canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js</span></span><br><span class="line">  <span class="comment"># canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js</span></span><br><span class="line">  <span class="attr">three:</span></span><br><span class="line">  <span class="attr">three_waves:</span></span><br><span class="line">  <span class="attr">canvas_lines:</span></span><br><span class="line">  <span class="attr">canvas_sphere:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Internal version: 1.0.0</span></span><br><span class="line">  <span class="comment"># Example:</span></span><br><span class="line">  <span class="comment"># canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js</span></span><br><span class="line">  <span class="attr">canvas_ribbon:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Injects"><a href="#Injects" class="headerlink" title="Injects"></a>Injects</h3><p>We extended the hexo filter and added <code>theme_inject</code>, so user can add the desired custom content to any injection point.</p>
+<h4 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>A injects argument will get passed into the function, so we can use it add custom code in <code>injectPoint</code> as following.</p>
+<p>For inject view:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The name of same `injectPoint` suggest be unique. If same, it will override low priority configurations.</span></span><br><span class="line"><span class="comment">// `locals` and `options` is the same as partial https://hexo.io/docs/helpers#partial.</span></span><br><span class="line"><span class="comment">// `order` defines the order of injection, which by default depends on the priority of injection.</span></span><br><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// it will put code from this filePath into injectPoint.</span></span><br><span class="line">  injects.[injectPoint].file(name, filePath, [locals, options, order]);</span><br><span class="line">  <span class="comment">// it will put raw string as code into injectPoint.</span></span><br><span class="line">  injects.[injectPoint].raw(name, raw, [locals, options, order]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>For inject style:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// it will put styleFile into injectPoint.</span></span><br><span class="line">  injects.[injectPoint].push(styleFile);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>These are many <code>injectPoint</code>, defined in <a href="https://github.com/theme-next/hexo-theme-next/blob/master/scripts/events/lib/injects-point.js" target="_blank" rel="noopener"><code>injects-point.js</code></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  views: [<span class="string">'head'</span>, <span class="string">'header'</span>, <span class="string">'sidebar'</span>, <span class="string">'postMeta'</span>, <span class="string">'postBodyEnd'</span>, ..., <span class="string">'footer'</span>, <span class="string">'bodyEnd'</span>],</span><br><span class="line">  styles: [<span class="string">'variable'</span>, <span class="string">'mixin'</span>, <span class="string">'style'</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>custom_file_path</code> also uses this API, see <a href="https://github.com/theme-next/hexo-theme-next/blob/master/scripts/filters/default-injects.js" target="_blank" rel="noopener">default-injects.js</a>. It will consume <code>custom</code> name in view inject points. So if you use <code>custom_file_path</code>, please not use <code>custom</code>.</p>
+<div class="note warning">
+            <p>You have to note path, it must absolute or relative to <code>hexo_dir</code>.</p>
+          </div>
+
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p><strong>One:</strong> load a custom script. We can add it in <code>bodyEnd</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  injects.bodyEnd.raw(<span class="string">'load-custom-js'</span>, <span class="string">'&lt;script src="js-path-or-cdn.js"&gt;&lt;/script&gt;'</span>, &#123;&#125;, &#123;<span class="attr">cache</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Two:</strong> add a custom <code>my-favourite-food.swig</code> to sidebar.</p>
+<p>Step1: you should create <code>my-favourite-food.swig</code> in any path(e.g. <code>source/_data/</code>) as below. You can get variable from <code>hexo</code> or <code>local</code> defined in filter.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for food in foods %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;food&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Step2: add filter to load it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  injects.sidebar.file(<span class="string">'my-favourite-food'</span>, <span class="string">'source/_data/my-favourite-food.swig'</span>, &#123;</span><br><span class="line">    foods: [<span class="string">'apple'</span>, <span class="string">'orange'</span>]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Three:</strong> want to have big header, put <code>big-header.styl</code> to NexT.</p>
+<p>Of course, you need to create this file first(e.g. <code>source/_data/big-header.styl</code>).</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>And then add it in filter.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">'theme_inject'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">injects</span>) </span>&#123;</span><br><span class="line">  injects.style.push(<span class="string">'source/_data/big-header.styl'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><p>We also support hexo’s plugin system, which makes it easy to extend functions without modifying the source code of the core module. You can see <a href="https://hexo.io/docs/plugins.html#Plugin" target="_blank" rel="noopener">https://hexo.io/docs/plugins.html#Plugin</a> to learn how to create a plugin.</p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Third-party-JS-Libraries"><span class="nav-number">1.</span> <span class="nav-text">Third-party JS Libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Injects"><span class="nav-number">2.</span> <span class="nav-text">Injects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Synopsis"><span class="nav-number">2.1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples"><span class="nav-number">2.2.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Plugin"><span class="nav-number">2.3.</span> <span class="nav-text">Plugin</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PZHan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PZHan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rochan88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rochan88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:rochan@qq.com" title="E-Mail → mailto:rochan@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/592net" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;592net" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/irochan" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;irochan" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.rockhan.com/" title="http:&#x2F;&#x2F;www.rockhan.com" rel="noopener" target="_blank">rockhan</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian">
+      <img src="/uploads/icp.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏ICP备2020050420号 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32030002307146" rel="noopener" target="_blank">京公网安备 32030002307146 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PZHan</span>
+  博客已运行<span id="since"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT</a> v0.0.2
+  </div>
+<script src="/js/since.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+    <div id="aplayer-fixed"></div>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<div class="aplayer">
+<script>
+NexT.utils.loadComments(document.querySelector('#aplayer-fixed'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js', () => {
+    const apFixed = new APlayer({
+      element: document.getElementById('aplayer-fixed'),
+      mutex: true,
+      theme: '#97dffd',
+      order: 'random',
+      lrcType: 3,
+      fixed: true,
+    });
+    $.ajax({
+      url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=3102961863',
+      success: function (list) {
+        //console.log(typeof list);
+        apFixed.list.add(typeof list == 'string' ? JSON.parse(list):list);
+        //apFixed.list.add(JSON.parse(list));
+      }
+    });
+  },window.APlayer);
+});
+</script>
+</div>
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script src="/js/cursor/explosion.min.js"></script>
+
+  
+<script src="/js/FunnyTitle.js"></script>
+
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2MJCVa0G8jleIOwvB3YtyCW6-MdYXbMMI',
+      appKey     : 'N482Hc13XQ1i8n2ubIHE5oLl',
+      placeholder: "写下你的评论……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+</html>

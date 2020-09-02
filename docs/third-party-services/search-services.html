@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.rockhan.com","root":"/","scheme":"Gemini","darkmode":true,"version":"0.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"since":"2019-12-22T00:00:00.000Z","copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"favicon":{"visibilitychange":true,"narmal":"/images/favicon.ico","hidden":"/images/failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="NexT User Docs – Third-party Service Integration – Search Services">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search Services">
+<meta property="og:url" content="http://blog.rockhan.com/docs/third-party-services/search-services.html">
+<meta property="og:site_name" content="Hi, My Blog">
+<meta property="og:description" content="NexT User Docs – Third-party Service Integration – Search Services">
+<meta property="og:image" content="https://user-images.githubusercontent.com/16272760/73673892-68a29b00-46ea-11ea-90c5-916b4b11fc7a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/16272760/73673895-693b3180-46ea-11ea-8f50-8bae850b50d0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/16272760/73673902-6b04f500-46ea-11ea-9c80-4e5c5002e07b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/16272760/73673905-6b9d8b80-46ea-11ea-9e01-702ec2a8a297.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/algolia-7.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/swiftype-1.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/swiftype-2.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/swiftype-3.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/swiftype-4.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/swiftype-5.png">
+<meta property="article:published_time" content="2020-08-22T03:02:02.633Z">
+<meta property="article:modified_time" content="2020-03-10T11:04:27.297Z">
+<meta property="article:author" content="PZHan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/16272760/73673892-68a29b00-46ea-11ea-90c5-916b4b11fc7a.png">
+
+<link rel="canonical" href="http://blog.rockhan.com/docs/third-party-services/search-services">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title>Search Services | Hi, My Blog
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hi, My Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-news">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-info-circle"></i>News</a>
+
+  </li>
+
+      
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-fw fa-book"></i>Docs</a>
+
+  </li>
+
+
+        
+      
+
+      
+  </ul>
+
+</nav>
+
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <!--div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi, My Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div-->
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-meta">
+
+  <div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hi, My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+</div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+              
+  <li class="menu-item menu-item-getting-started">
+
+    <a href="/docs/getting-started/" rel="section"><i class="fa fa-fw fa-flag"></i>Getting Started</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-theme-settings">
+
+    <a href="/docs/theme-settings/" rel="section"><i class="fa fa-fw fa-star"></i>Theme Settings</a>
+
+  </li>
+
+
+          
+          
+            
+                
+  <li class="menu-item menu-item-third-party-services">
+
+    <a href="/docs/third-party-services/" rel="section"><i class="fa fa-fw fa-plug"></i>Third Party Services</a>
+
+  </li>
+
+
+          
+              
+  <li class="menu-item menu-item-tag-plugins">
+
+    <a href="/docs/tag-plugins/" rel="section"><i class="fa fa-fw fa-rocket"></i>Tag Plugins</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-advanced-settings">
+
+    <a href="/docs/advanced-settings/" rel="section"><i class="fa fa-fw fa-rocket"></i>Advanced Settings</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-faq's">
+
+    <a href="/docs/faqs/" rel="section"><i class="fa fa-fw fa-life-ring"></i>FAQ's</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-platforms">
+
+    <a href="/docs/platforms/" rel="section"><i class="fa fa-fw fa-retweet"></i>Platforms</a>
+
+  </li>
+
+
+          
+        </ul>
+        
+
+        
+
+                
+
+                    
+                    <ul id="sub-menu-2" class="sub-menu menu">
+                      
+                        
+  <li class="menu-item menu-item-algolia-search">
+
+    <a href="/docs/third-party-services/algolia-search/" rel="section"><i class="fa fa-fw fa-adn"></i>Algolia Search</a>
+
+  </li>
+
+
+                    </ul>
+                    
+                
+        
+      
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-Hans">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Search Services
+</h1>
+
+<div class="post-meta">
+    <div class="post-description">NexT User Docs – Third-party Service Integration – Search Services</div>
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/docs/">DOCS</a></li>
+            <li><a href="/docs/third-party-services/">THIRD-PARTY-SERVICES</a></li>
+            <li>SEARCH-SERVICES</li>
+          
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h3 id="Algolia-Search"><a href="#Algolia-Search" class="headerlink" title="Algolia Search"></a>Algolia Search</h3><p>NexT provides Algolia search plugin for index your hexo website content. What you should note here is that only turn on <code>enable</code> of <code>algolia_search</code> in <span class="label primary">theme config file</span> cannot let you use the algolia search correctly, you need to install corresponding <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo Algolia</a> plugin to seach your website with Algolia. Follow the steps described below to complete the installation of Algolia search.</p>
+<div class="tabs" id="algolia-search"><ul class="nav-tabs"><li class="tab active"><a href="#algolia-search-1">Registration →</a></li><li class="tab"><a href="#algolia-search-2">Algolia Config →</a></li><li class="tab"><a href="#algolia-search-3">Hexo Config →</a></li><li class="tab"><a href="#algolia-search-4">Algolia Module →</a></li><li class="tab"><a href="#algolia-search-5">NexT Config</a></li></ul><div class="tab-content"><div class="tab-pane active" id="algolia-search-1"><p>Register at <a href="https://www.algolia.com" target="_blank" rel="noopener">Algolia</a>, you can log in directly using GitHub or Google Account. Upon Customer’s initial sign-up for an Account, Customer will have a free, fourteen (14) day evaluation period (the «Evaluation Period») for the Algolia Services commencing on the Effective Date, subject to the limitations on Algolia’s website. After that, Algolia offers a free, branded version for up to 10k records and 100k operations per month.</p></div><div class="tab-pane" id="algolia-search-2"><ol>
+<li><p>If a tutorial pops up, you can skip it. Go straight to create an <code>Index</code> which will be used later.<br><img src="https://user-images.githubusercontent.com/16272760/73673892-68a29b00-46ea-11ea-90c5-916b4b11fc7a.png" alt="Algolia Create Index"></p>
+</li>
+<li><p>Go to the <code>API Keys</code> page and find your credentials. You will need the <code>Application ID</code> and the <code>Search-only API key</code> in the following sections. The <code>Admin API key</code> need to keep confidential. Never store your Admin API Key as <code>apiKey</code> in <span class="label primary">theme config file</span>: it would give full control of your Algolia index to others and you don’t want to face the consequences.<br><img src="https://user-images.githubusercontent.com/16272760/73673895-693b3180-46ea-11ea-8f50-8bae850b50d0.png" alt="Algolia API Keys"></p>
+</li>
+<li><p>In the <code>API Keys</code> page, click the <code>All API Keys</code> button to switch to the corresponding tab. Then click the <code>New API Key</code> button to activate a pop-up box where you can setup authorizations and restrictions with a great level of precision. Enter <code>addObject</code>, <code>deleteObject</code>, <code>listIndexes</code>, <code>deleteIndex</code> features in ACL permissions that will be allowed for the given API key. And then click the <code>Create</code> button. Copy this newly created key to the clipboard, we call it a <code>High-privilege API key</code>.<br><img src="https://user-images.githubusercontent.com/16272760/73673902-6b04f500-46ea-11ea-9c80-4e5c5002e07b.png" alt="Algolia API Keys 2"><br><img src="https://user-images.githubusercontent.com/16272760/73673905-6b9d8b80-46ea-11ea-9e01-702ec2a8a297.png" alt="Algolia Configuring Records"></p>
+</li>
+</ol></div><div class="tab-pane" id="algolia-search-3"><p>In your <span class="label info">site config file</span>, add the following configuration and replace the <code>applicationID</code> &amp; <code>apiKey</code> &amp; <code>indexName</code> with corresponding fields obtained at Algolia.</p>
+<figure class="highlight yml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="attr">applicationID:</span> <span class="string">'Application ID'</span></span><br><span class="line">  <span class="attr">apiKey:</span> <span class="string">'Search-only API key'</span></span><br><span class="line">  <span class="attr">indexName:</span> <span class="string">'indexName'</span></span><br><span class="line">  <span class="attr">chunkSize:</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="algolia-search-4"><ol>
+<li><p>Algolia requires users to upload their search index data either manually or via provided APIs. Install and configure <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo Algolia</a> in your Hexo directory. This plugin will index your site and upload selected data to Algolia.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo</span><br><span class="line">$ npm install hexo-algolia</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run the following command to upload index data, keep a weather eye out the output of the command.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key <span class="comment"># Use Git Bash</span></span><br><span class="line"><span class="comment"># set HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Windows command line</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo algolia</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/docs/algolia-7.png" alt="Reload Index"></p>
+</li>
+</ol></div><div class="tab-pane" id="algolia-search-5"><p>In <span class="label primary">theme config file</span>, turn on <code>enable</code> of <code>algolia_search</code>. At the same time, you need to <strong>turn off other search plugins</strong> like Local Search. You can also adjust the text in <code>labels</code> according to your needs.</p>
+<figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Algolia Search</span></span><br><span class="line"><span class="attr">algolia_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hits:</span></span><br><span class="line">    <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">input_placeholder:</span> <span class="string">Search</span> <span class="string">for</span> <span class="string">Posts</span></span><br><span class="line">    <span class="attr">hits_empty:</span> <span class="string">"We didn't find any results for the search: $&#123;query&#125;"</span></span><br><span class="line">    <span class="attr">hits_stats:</span> <span class="string">"$&#123;hits&#125; results found in $&#123;time&#125; ms"</span></span><br></pre></td></tr></table></figure>
+
+<p>If you want to use a different version from CDN, please follow the instructions below.</p>
+<p>   You need to <strong>set vendors</strong> in <span class="label primary">theme config file</span>:<br>   <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="comment"># Algolia Search</span></span><br><span class="line">  <span class="comment"># algolia_search: //cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js</span></span><br><span class="line">  <span class="comment"># instant_search: //cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js</span></span><br><span class="line">  <span class="attr">algolia_search:</span> <span class="string">//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js</span></span><br><span class="line">  <span class="attr">instant_search:</span> <span class="string">//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure></p></div></div></div>
+
+<div class="note danger">
+            <p><strong>Known Issues</strong></p><ol><li>The latest version of the <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo-Algolia</a> plugin removes the content indexing feature, given Algolia’s free account limitation.</li><li>The <a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">Hexo-Algoliasearch</a> plugin provides content indexing functionality, but requires the replacement of keywords in the NexT theme. The same problem exists with <code>Record Too Big</code> for Algolia’s free account.<ul><li>Replace all <code>applicationID</code> in <code>source/js/algolia-search.js</code> with <code>appId</code></li><li>Replace all <code>applicationID</code> in <code>layout/_partials/head/head.swig</code> with <code>appId</code></li></ul></li></ol>
+          </div>
+
+<h3 id="Local-Search"><a href="#Local-Search" class="headerlink" title="Local Search"></a>Local Search</h3><p>Local search no need any external 3rd-party services and can be extra indexed by search engines. That search method recommended for most users.</p>
+<div class="tabs" id="local-search"><ul class="nav-tabs"><li class="tab active"><a href="#local-search-1">Installation →</a></li><li class="tab"><a href="#local-search-2">Hexo Config →</a></li><li class="tab"><a href="#local-search-3">NexT Config</a></li></ul><div class="tab-content"><div class="tab-pane active" id="local-search-1"><p>Install <code>hexo-generator-searchdb</code> by run following command in <span class="label info">site root dir</span>:</p>
+<pre><code>$ npm install hexo-generator-searchdb</code></pre></div><div class="tab-pane" id="local-search-2"><p>Edit <span class="label info">site config file</span> and add following content:</p>
+<figure class="highlight yml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="local-search-3"><p>Edit <span class="label primary">theme config file</span> to enable Local Search:</p>
+<figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line">  <span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></div></div></div>
+
+<h3 id="Swiftype-Search"><a href="#Swiftype-Search" class="headerlink" title="Swiftype Search"></a>Swiftype Search</h3><div class="tabs" id="swiftype-search"><ul class="nav-tabs"><li class="tab active"><a href="#swiftype-search-1">Sign up →</a></li><li class="tab"><a href="#swiftype-search-2">Create Search Engine →</a></li><li class="tab"><a href="#swiftype-search-3">Customize and Enable Search →</a></li><li class="tab"><a href="#swiftype-search-4">Get Key →</a></li><li class="tab"><a href="#swiftype-search-5">Search Field →</a></li><li class="tab"><a href="#swiftype-search-6">NexT Config</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swiftype-search-1"><p>Go to <a href="https://swiftype.com/users/sign_up" target="_blank" rel="noopener">Swiftype Sign Page</a> to sign up.<br><img src="/images/docs/swiftype-1.png" alt="Swiftype Sign up"></p></div><div class="tab-pane" id="swiftype-search-2"><p>After signing up create a new search engine and follow instructions.<br><img src="/images/docs/swiftype-2.png" alt="Swiftype Create Search Engine"></p></div><div class="tab-pane" id="swiftype-search-3"><p>After creating choose <code>Integrate</code> → <code>Install Search</code> in the menu to customize with instructions. Then click <code>Active</code> button finally.<br><img src="/images/docs/swiftype-3.png" alt="Swiftype Customize And Enable Search"></p></div><div class="tab-pane" id="swiftype-search-4"><p>Back to <code>INSTALL CODE</code> and copy your <code>swiftype_key</code>.<br><img src="/images/docs/swiftype-4.png" alt="Swiftype Get Key"></p></div><div class="tab-pane" id="swiftype-search-5"><p>Click <code>Change Configuration</code> → <code>Search Field</code>, then follow the instructions.<br><img src="/images/docs/swiftype-5.png" alt="Swiftype Search Field"></p></div><div class="tab-pane" id="swiftype-search-6"><p>Edit <span class="label primary">theme config file</span> and fill section <code>swiftype_key</code> with value of your key gets:</p>
+<figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swiftype Search API Key</span></span><br><span class="line"><span class="attr">swiftype_key:</span> <span class="string">xxxxxxxxx</span></span><br></pre></td></tr></table></figure></div></div></div>
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/docs/">DOCS</a></li>
+            <li><a href="/docs/third-party-services/">THIRD-PARTY-SERVICES</a></li>
+            <li>SEARCH-SERVICES</li>
+          
+  </ul>
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Algolia-Search"><span class="nav-number">1.</span> <span class="nav-text">Algolia Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Search"><span class="nav-number">2.</span> <span class="nav-text">Local Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiftype-Search"><span class="nav-number">3.</span> <span class="nav-text">Swiftype Search</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PZHan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PZHan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rochan88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rochan88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:rochan@qq.com" title="E-Mail → mailto:rochan@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/592net" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;592net" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/irochan" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;irochan" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.rockhan.com/" title="http:&#x2F;&#x2F;www.rockhan.com" rel="noopener" target="_blank">rockhan</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian">
+      <img src="/uploads/icp.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏ICP备2020050420号 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32030002307146" rel="noopener" target="_blank">京公网安备 32030002307146 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PZHan</span>
+  博客已运行<span id="since"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT</a> v0.0.2
+  </div>
+<script src="/js/since.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+    <div id="aplayer-fixed"></div>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<div class="aplayer">
+<script>
+NexT.utils.loadComments(document.querySelector('#aplayer-fixed'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js', () => {
+    const apFixed = new APlayer({
+      element: document.getElementById('aplayer-fixed'),
+      mutex: true,
+      theme: '#97dffd',
+      order: 'random',
+      lrcType: 3,
+      fixed: true,
+    });
+    $.ajax({
+      url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=3102961863',
+      success: function (list) {
+        //console.log(typeof list);
+        apFixed.list.add(typeof list == 'string' ? JSON.parse(list):list);
+        //apFixed.list.add(JSON.parse(list));
+      }
+    });
+  },window.APlayer);
+});
+</script>
+</div>
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script src="/js/cursor/explosion.min.js"></script>
+
+  
+<script src="/js/FunnyTitle.js"></script>
+
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2MJCVa0G8jleIOwvB3YtyCW6-MdYXbMMI',
+      appKey     : 'N482Hc13XQ1i8n2ubIHE5oLl',
+      placeholder: "写下你的评论……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+</html>

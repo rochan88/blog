@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.rockhan.com","root":"/","scheme":"Gemini","darkmode":true,"version":"0.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"since":"2019-12-22T00:00:00.000Z","copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"favicon":{"visibilitychange":true,"narmal":"/images/favicon.ico","hidden":"/images/failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="NexT User Docs – Troubleshooting">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Troubleshooting">
+<meta property="og:url" content="http://blog.rockhan.com/docs/troubleshooting.html">
+<meta property="og:site_name" content="Hi, My Blog">
+<meta property="og:description" content="NexT User Docs – Troubleshooting">
+<meta property="article:published_time" content="2020-08-22T03:02:02.633Z">
+<meta property="article:modified_time" content="2020-03-10T11:04:27.298Z">
+<meta property="article:author" content="PZHan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.rockhan.com/docs/troubleshooting">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title>Troubleshooting | Hi, My Blog
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hi, My Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-news">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-info-circle"></i>News</a>
+
+  </li>
+
+      
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-fw fa-book"></i>Docs</a>
+
+  </li>
+
+
+        
+      
+
+      
+  </ul>
+
+</nav>
+
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <!--div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi, My Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div-->
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-meta">
+
+  <div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hi, My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+</div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+              
+  <li class="menu-item menu-item-getting-started">
+
+    <a href="/docs/getting-started/" rel="section"><i class="fa fa-fw fa-flag"></i>Getting Started</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-theme-settings">
+
+    <a href="/docs/theme-settings/" rel="section"><i class="fa fa-fw fa-star"></i>Theme Settings</a>
+
+  </li>
+
+
+          
+          
+            
+                
+  <li class="menu-item menu-item-third-party-services">
+
+    <a href="/docs/third-party-services/" rel="section"><i class="fa fa-fw fa-plug"></i>Third Party Services</a>
+
+  </li>
+
+
+          
+              
+  <li class="menu-item menu-item-tag-plugins">
+
+    <a href="/docs/tag-plugins/" rel="section"><i class="fa fa-fw fa-rocket"></i>Tag Plugins</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-advanced-settings">
+
+    <a href="/docs/advanced-settings/" rel="section"><i class="fa fa-fw fa-rocket"></i>Advanced Settings</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-faq's">
+
+    <a href="/docs/faqs/" rel="section"><i class="fa fa-fw fa-life-ring"></i>FAQ's</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-platforms">
+
+    <a href="/docs/platforms/" rel="section"><i class="fa fa-fw fa-retweet"></i>Platforms</a>
+
+  </li>
+
+
+          
+        </ul>
+        
+
+        
+
+                
+                
+        
+      
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-Hans">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Troubleshooting
+</h1>
+
+<div class="post-meta">
+    <div class="post-description">NexT User Docs – Troubleshooting</div>
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h3 id="Keep-up-indentation"><a href="#Keep-up-indentation" class="headerlink" title="Keep up indentation"></a>Keep up indentation</h3><p>When you edit any YAML configs, always need to keep up indents.<br>Currently, in all Hexo and NexT configuration files parameters uses <strong>2 spaces indents</strong> from parent option.</p>
+<p>For example, we want to change NexT scheme from standart <code>Muse</code> to <code>Gemini</code> and want to use <a href="/docs/getting-started/data-files">Data Files</a> feature with <a href="/docs/getting-started/data-files#option-1">Hexo way</a> option.</p>
+<div class="tabs" id="keep-up-indentation"><ul class="nav-tabs"><li class="tab active"><a href="#keep-up-indentation-1">NexT Config →</a></li><li class="tab"><a href="#keep-up-indentation-2">Hexo Config</a></li></ul><div class="tab-content"><div class="tab-pane active" id="keep-up-indentation-1"><p>We open <span class="label primary">theme config file</span> and under the «Scheme Settings» section copy next parameters:</p>
+<figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="keep-up-indentation-2"><p>Then we open <span class="label info">site config file</span> and paste these parameters under <code>theme_config</code> section:</p>
+<div class="tabs" id="2-spaces-indents"><ul class="nav-tabs"><li class="tab active"><a href="#2-spaces-indents-1"><span class="label danger">Nothing Happen</span></a></li><li class="tab"><a href="#2-spaces-indents-2"><span class="label success">Working Normally</span></a></li></ul><div class="tab-content"><div class="tab-pane active" id="2-spaces-indents-1"><figure class="highlight yml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+
+<p>Here will nothing happen because indentation not keeped up. Hexo just can’t see these parameters because subparameters (children parameters of <code>theme_config</code> parameter) are not exists. Let’s see <a href="#2-spaces-indents-2">same configuration with indents</a>.</p></div><div class="tab-pane" id="2-spaces-indents-2"><figure class="highlight yml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#scheme: Muse</span></span><br><span class="line">  <span class="comment">#scheme: Mist</span></span><br><span class="line">  <span class="comment">#scheme: Pisces</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+
+<p>And here Hexo can read these parameters as <code>theme_config.scheme: Gemini</code> in same way, as NexT can read <code>scheme: Gemini</code> parameter. So, with 2 spaces indents from parent option(s) Hexo will load all NexT parameters and work fine.</p></div></div></div></div></div></div>
+
+<h3 id="Backtick-Code-Block-in-Tags"><a href="#Backtick-Code-Block-in-Tags" class="headerlink" title="Backtick Code Block in Tags"></a>Backtick Code Block in Tags</h3><p>For Hexo before version 4.0, when backtick code block(s) exists inside other tags (like <code>blockquote</code>, <code>note</code>, <code>tabs</code>), that code block will be generated as «undefined» string in HTML. There are several ways to resolve this:</p>
+<div class="tabs" id="backtick-code-block"><ul class="nav-tabs"><li class="tab active"><a href="#backtick-code-block-1"><span class="label success">Tagged Code Block</span></a></li><li class="tab"><a href="#backtick-code-block-2">HTML tags</a></li><li class="tab"><a href="#backtick-code-block-3">Bugfix for Backtick</a></li></ul><div class="tab-content"><div class="tab-pane active" id="backtick-code-block-1"><p>Instead of <a href="https://hexo.io/docs/tag-plugins#Backtick-Code-Block" target="_blank" rel="noopener">Backtick Code Block</a> you also can use tagged <a href="https://hexo.io/docs/tag-plugins#Code-Block" target="_blank" rel="noopener">Code Block</a>.<br>But in rare cases standard code block can obtain errors inside other tags.</p></div><div class="tab-pane" id="backtick-code-block-2"><p>Use HTML tags instead of Hexo tags: <code>&lt;pre&gt;&lt;code&gt;</code>.<br>In this case you can’t add code syntax highlighting.</p></div><div class="tab-pane" id="backtick-code-block-3"><p>Here is the <a href="https://github.com/hexojs/hexo/pull/2321" target="_blank" rel="noopener">PR with bugfix for backtick code block inside tags</a> (Submitted in 2016, merged three years later).<br>So, upgrade to Hexo 4.0 or higher, if you need to use backtick code block inside tags.</p>
+<div class="note danger">
+            <p>Sometimes during generate you can see «<span class="label danger">Error: Unmatched placeholder remains!</span>» message.<br>This mean somewhere in your posts, blocks with tags was commented with <code>{#</code> and <code>#}</code> symbols:</p><div class="tabs" id="unmatched-placeholder-remains"><ul class="nav-tabs"><li class="tab active"><a href="#unmatched-placeholder-remains-1"><span class="label danger">Error</span></a></li><li class="tab"><a href="#unmatched-placeholder-remains-2"><span class="label success">Success</span></a></li></ul><div class="tab-content"><div class="tab-pane active" id="unmatched-placeholder-remains-1"><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;&#123;#</span><br><span class="line">&#123;% label error@Unmatched placeholder remains! %&#125;</span><br><span class="line"><span class="comment">#&#125;&#123;% endraw %&#125;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="unmatched-placeholder-remains-2"><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;</span><br><span class="line">&#123;% label error@Unmatched placeholder remains! %&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+          </div></div></div></div>
+
+<h3 id="Favicon-Set-but-Doesn’t-Work-Need-to-redocs"><a href="#Favicon-Set-but-Doesn’t-Work-Need-to-redocs" class="headerlink" title="Favicon Set but Doesn’t Work (Need to redocs)"></a>Favicon Set but Doesn’t Work (Need to redocs)</h3><p>Put your <code>favicon</code> under <span class="label info">site's</span> <code>source</code> dir. If you find that your Favicon doesn’t work, please clean your browser’s cache first and then visit your Favicon’s URL directly, which should be <code>http(s)://your-domain.com/favicon.ico</code>.</p>
+<div class="note warning">
+            <p>If your site is in a subdirectory please set it to <code>favicon: favicon.ico</code>.</p>
+          </div>
+
+<h3 id="TOC-Issues"><a href="#TOC-Issues" class="headerlink" title="TOC Issues"></a>TOC Issues</h3><p>Do not hava a skip-level directory in the post. For example, a third level directory <code>###</code> followed by a <code>#####</code> is not recommended.<br>See: <a href="https://github.com/theme-next/hexo-theme-next/issues/882" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next/issues/882</a></p>
+<p>If you are using <code>hexo-renderer-markdown-it</code>, it’s recommended to install <code>markdown-it-named-headings</code> to make the TOC work correctly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install markdown-it-named-headings</span><br></pre></td></tr></table></figure>
+<p>See: <a href="https://github.com/theme-next/hexo-theme-next/issues/1168" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next/issues/1168</a><br>Here is the <a href="https://github.com/hexojs/hexo-renderer-markdown-it/pull/90" target="_blank" rel="noopener">PR with bugfix for default config</a> of <code>hexo-renderer-markdown-it</code> plugin.</p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keep-up-indentation"><span class="nav-number">1.</span> <span class="nav-text">Keep up indentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtick-Code-Block-in-Tags"><span class="nav-number">2.</span> <span class="nav-text">Backtick Code Block in Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Favicon-Set-but-Doesn’t-Work-Need-to-redocs"><span class="nav-number">3.</span> <span class="nav-text">Favicon Set but Doesn’t Work (Need to redocs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TOC-Issues"><span class="nav-number">4.</span> <span class="nav-text">TOC Issues</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PZHan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PZHan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rochan88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rochan88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:rochan@qq.com" title="E-Mail → mailto:rochan@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/592net" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;592net" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/irochan" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;irochan" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.rockhan.com/" title="http:&#x2F;&#x2F;www.rockhan.com" rel="noopener" target="_blank">rockhan</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian">
+      <img src="/uploads/icp.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏ICP备2020050420号 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32030002307146" rel="noopener" target="_blank">京公网安备 32030002307146 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PZHan</span>
+  博客已运行<span id="since"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT</a> v0.0.2
+  </div>
+<script src="/js/since.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+    <div id="aplayer-fixed"></div>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<div class="aplayer">
+<script>
+NexT.utils.loadComments(document.querySelector('#aplayer-fixed'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js', () => {
+    const apFixed = new APlayer({
+      element: document.getElementById('aplayer-fixed'),
+      mutex: true,
+      theme: '#97dffd',
+      order: 'random',
+      lrcType: 3,
+      fixed: true,
+    });
+    $.ajax({
+      url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=3102961863',
+      success: function (list) {
+        //console.log(typeof list);
+        apFixed.list.add(typeof list == 'string' ? JSON.parse(list):list);
+        //apFixed.list.add(JSON.parse(list));
+      }
+    });
+  },window.APlayer);
+});
+</script>
+</div>
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script src="/js/cursor/explosion.min.js"></script>
+
+  
+<script src="/js/FunnyTitle.js"></script>
+
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2MJCVa0G8jleIOwvB3YtyCW6-MdYXbMMI',
+      appKey     : 'N482Hc13XQ1i8n2ubIHE5oLl',
+      placeholder: "写下你的评论……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+</html>

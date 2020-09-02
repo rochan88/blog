@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.rockhan.com","root":"/","scheme":"Gemini","darkmode":true,"version":"0.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"since":"2019-12-22T00:00:00.000Z","copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"favicon":{"visibilitychange":true,"narmal":"/images/favicon.ico","hidden":"/images/failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="NexT User Docs – Third-party Service Integration – Comment Systems">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Comment Systems">
+<meta property="og:url" content="http://blog.rockhan.com/docs/third-party-services/comments.html">
+<meta property="og:site_name" content="Hi, My Blog">
+<meta property="og:description" content="NexT User Docs – Third-party Service Integration – Comment Systems">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/valine-1.png">
+<meta property="og:image" content="http://blog.rockhan.com/images/docs/valine-2.png">
+<meta property="article:published_time" content="2020-08-22T03:02:02.631Z">
+<meta property="article:modified_time" content="2020-03-10T11:04:27.292Z">
+<meta property="article:author" content="PZHan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.rockhan.com/images/docs/valine-1.png">
+
+<link rel="canonical" href="http://blog.rockhan.com/docs/third-party-services/comments">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title>Comment Systems | Hi, My Blog
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hi, My Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-news">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-info-circle"></i>News</a>
+
+  </li>
+
+      
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-fw fa-book"></i>Docs</a>
+
+  </li>
+
+
+        
+      
+
+      
+  </ul>
+
+</nav>
+
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <!--div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi, My Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div-->
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-meta">
+
+  <div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hi, My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+</div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+              
+  <li class="menu-item menu-item-getting-started">
+
+    <a href="/docs/getting-started/" rel="section"><i class="fa fa-fw fa-flag"></i>Getting Started</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-theme-settings">
+
+    <a href="/docs/theme-settings/" rel="section"><i class="fa fa-fw fa-star"></i>Theme Settings</a>
+
+  </li>
+
+
+          
+          
+            
+                
+  <li class="menu-item menu-item-third-party-services">
+
+    <a href="/docs/third-party-services/" rel="section"><i class="fa fa-fw fa-plug"></i>Third Party Services</a>
+
+  </li>
+
+
+          
+              
+  <li class="menu-item menu-item-tag-plugins">
+
+    <a href="/docs/tag-plugins/" rel="section"><i class="fa fa-fw fa-rocket"></i>Tag Plugins</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-advanced-settings">
+
+    <a href="/docs/advanced-settings/" rel="section"><i class="fa fa-fw fa-rocket"></i>Advanced Settings</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-faq's">
+
+    <a href="/docs/faqs/" rel="section"><i class="fa fa-fw fa-life-ring"></i>FAQ's</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-platforms">
+
+    <a href="/docs/platforms/" rel="section"><i class="fa fa-fw fa-retweet"></i>Platforms</a>
+
+  </li>
+
+
+          
+        </ul>
+        
+
+        
+
+                
+
+                    
+                    <ul id="sub-menu-2" class="sub-menu menu">
+                      
+                        
+  <li class="menu-item menu-item-algolia-search">
+
+    <a href="/docs/third-party-services/algolia-search/" rel="section"><i class="fa fa-fw fa-adn"></i>Algolia Search</a>
+
+  </li>
+
+
+                    </ul>
+                    
+                
+        
+      
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-Hans">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Comment Systems
+</h1>
+
+<div class="post-meta">
+    <div class="post-description">NexT User Docs – Third-party Service Integration – Comment Systems</div>
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/docs/">DOCS</a></li>
+            <li><a href="/docs/third-party-services/">THIRD-PARTY-SERVICES</a></li>
+            <li>COMMENTS</li>
+          
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><p>Disqus is a global comment system that improves discussion on websites and connects conversations across the web.</p>
+<ol>
+<li>Create an account and log into <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a>. Once logged in, click the <code>GET STARTED</code> button on the homepage, then select <code>I want to install Disqus on my site</code> option and you will see the <code>Create a new site</code> interface.</li>
+<li>Enter your <code>Website Name</code>, which will serve as your Disqus shortname, and select a Category from the drop-down menu. Then click <code>Create Site</code> button.</li>
+<li>Choose <code>I don&#39;t see my platform listed, install manually with Universal Code</code>, configure Disqus for your site, and click <code>Complete Setup</code> button.</li>
+<li>Set the value <code>enable</code> to <code>true</code>, add the obtained Disqus shortname (<code>shortname</code>), and edit other configurations in <code>disqus</code> section in the <span class="label primary">theme config file</span> as following: <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">disqus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">your-short-disqus-name</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="DisqusJS"><a href="#DisqusJS" class="headerlink" title="DisqusJS"></a>DisqusJS</h3><p>Render Disqus comment component using Disqus API.</p>
+<ol>
+<li>Get your Disqus API Key from <a href="https://disqus.com/api/applications/" target="_blank" rel="noopener">Disqus API Application</a>.</li>
+<li>Go to the settings page of your Disqus Application, enter your domain in Settings -&gt; Domains.</li>
+<li>Get your Disqus Shortname from <a href="https://disqus.com/admin/settings/general/" target="_blank" rel="noopener">General Settings - Disqus Admin</a>.</li>
+<li>Set the value <code>enable</code> to <code>true</code>, add the obtained Disqus API Key (<code>apikey</code>) and Shortname (<code>shortname</code>), and edit other configurations in <code>disqusjs</code> section in the <span class="label primary">theme config file</span> as following: <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DisqusJS</span></span><br><span class="line"><span class="comment"># Alternative Disqus - Render comment component using Disqus API</span></span><br><span class="line"><span class="comment"># Demo: https://suka.js.org/DisqusJS/</span></span><br><span class="line"><span class="attr">disqusjs:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># API Endpoint of Disqus API (https://disqus.com/api/)</span></span><br><span class="line">  <span class="comment"># leave api empty if you are able to connect to Disqus API</span></span><br><span class="line">  <span class="comment"># otherwise you need a reverse proxy for Disqus API</span></span><br><span class="line">  <span class="comment"># For example:</span></span><br><span class="line">  <span class="comment"># api: https://disqus.skk.moe/disqus/</span></span><br><span class="line">  <span class="attr">api:</span></span><br><span class="line">  <span class="attr">apikey:</span> <span class="comment"># register new application from https://disqus.com/api/applications/</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="comment"># See: https://disqus.com/admin/settings/general/</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="LiveRe"><a href="#LiveRe" class="headerlink" title="LiveRe"></a>LiveRe</h3><p>LiveRe is a content platform based on social networking site reviews to help users communicate freely.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://livere.com" target="_blank" rel="noopener">LiveRe</a>, click on the <code>installation</code> button and select the free city version, then click on the <code>install now</code> button.</p>
+</li>
+<li><p>Copy the <code>data-uid</code> field in the installation code to get your LiveRe UID.</p>
+</li>
+<li><p>Add the obtained LiveRe UID to the <code>livere_uid</code> section in the <span class="label primary">theme config file</span> as following:</p>
+ <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Support for LiveRe comments system.</span></span><br><span class="line"><span class="comment"># You can get your uid from https://livere.com/insight/myCode (General web site)</span></span><br><span class="line"><span class="attr">livere_uid:</span> <span class="string">your_uid</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a>Gitalk</h3><p>Gitalk is a modern comment component based on Github Issue and Preact.</p>
+<ol>
+<li><p>Click here to sign up for a <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">new OAuth Application</a>. Other content can be filled in at will, but be sure to fill in the correct callback URL (usually the domain name corresponding to the comment page). Then you will get a Client ID and a Client secret.</p>
+</li>
+<li><p>Create a repository you want to store Gitalk comments in your GitHub.</p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, add Client ID (<code>client_id</code>) and Client secret (<code>client_secret</code>) in step 1, add your Github username (<code>github_id</code> and <code>admin_user</code>) and the created repository name (<code>repo</code>) in step 2, and edit other configurations in <code>gitalk</code> section in the <span class="label primary">theme config file</span> as following:</p>
+ <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Gitalk</span></span><br><span class="line"><span class="comment"># Demo: https://gitalk.github.io</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">github_id:</span>  <span class="comment"># Github repo owner</span></span><br><span class="line">  <span class="attr">repo:</span>  <span class="comment"># Repository name to store issues</span></span><br><span class="line">  <span class="attr">client_id:</span>  <span class="comment"># Github Application Client ID</span></span><br><span class="line">  <span class="attr">client_secret:</span>  <span class="comment"># Github Application Client Secret</span></span><br><span class="line">  <span class="attr">admin_user:</span>  <span class="comment"># GitHub repo owner and collaborators, only these guys can initialize github issues</span></span><br><span class="line">  <span class="attr">distraction_free_mode:</span> <span class="literal">true</span> <span class="comment"># Facebook-like distraction free mode</span></span><br><span class="line">  <span class="comment"># Gitalk's display language depends on user's browser or system environment</span></span><br><span class="line">  <span class="comment"># If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line">  <span class="comment"># Available value: en, es-ES, fr, ru, zh-CN, zh-TW</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<div class="note warning">
+            <p>Hexo has encode URLs by default since version 4.0: <a href="https://github.com/hexojs/hexo/pull/3708" target="_blank" rel="noopener">PR 3708</a>.<br>Gitalk relies on the md5 value of the page path for tagging, and this may cause issues. It’s recommended to upgrade Hexo to 4.0 (or above), NexT to 7.7.0 (or above) to use Gitalk.</p>
+          </div>
+
+<h3 id="Valine-China"><a href="#Valine-China" class="headerlink" title="Valine (China)"></a>Valine (China)</h3><p>Valine is a fast, simple &amp; efficient Leancloud based no back end comment system.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://leancloud.cn/dashboard/login.html#/signin" target="_blank" rel="noopener">LeanCloud</a>, and then click on the bottom left corner to <a href="https://leancloud.cn/dashboard/applist.html#/newapp" target="_blank" rel="noopener">create the application</a> in <a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">dashboard</a>.<br> <img src="/images/docs/valine-1.png" alt="Valine"></p>
+</li>
+<li><p>Go to the application you just created, select <code>Settings -&gt; Apply Key</code> in the lower left corner, and you will see your APP ID and APP Key.<br> <img src="/images/docs/valine-2.png" alt="Valine"></p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, add the obtained APP ID (<code>appid</code>) and APP Key (<code>appkey</code>), and edit other configurations in <code>valine</code> section in the <span class="label primary">theme config file</span> as following:</p>
+ <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># You can get your appid and appkey from https://leancloud.cn</span></span><br><span class="line"><span class="comment"># more info please open https://valine.js.org</span></span><br><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier , https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Changyan-China"><a href="#Changyan-China" class="headerlink" title="Changyan (China)"></a>Changyan (China)</h3><p>Changyan is the industry’s leading social commenting system, supporting both PC and mobile access methods, providing a new way of commenting on websites. Changyan has a variety of common account login, triple filtering mechanism, real-time data statistics, fast data export, comprehensive support for mobile and other leading functions. It fully satisfies the needs of major websites for user login, comment, sharing, and review.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://changyan.kuaizhan.com/" target="_blank" rel="noopener">Changyan</a>, then add your site to get APP ID and APP KEY.</p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, and add the obtained APP ID (<code>appid</code>) and APP KEY (<code>appkey</code>) to the <code>changyan</code> section in the <span class="label primary">theme config file</span> as following:</p>
+ <figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># changyan</span></span><br><span class="line"><span class="attr">changyan:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">appid:</span></span><br><span class="line">  <span class="attr">appkey:</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<div class="note warning">
+            <p>Please note that you should fill in the ICP record number of your website in time. If not, or the record information is not correct, the comment service will be stopped after 13 days. <a href="http://changyan.kuaizhan.com/help/o-beian.html" target="_blank" rel="noopener">Useful link</a></p>
+          </div>
+
+<h3 id="Multiple-Comment-System-Support"><a href="#Multiple-Comment-System-Support" class="headerlink" title="Multiple Comment System Support"></a>Multiple Comment System Support</h3><p>NexT allows you to enable multiple commenting systems at the same time. You can modify the following configuration to adjust the style or behavior of multiple commenting systems.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Multiple Comment System Support</span></span><br><span class="line"><span class="attr">comments:</span></span><br><span class="line">  <span class="comment"># Available values: tabs | buttons</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">tabs</span></span><br><span class="line">  <span class="comment"># Choose a comment system to be displayed by default</span></span><br><span class="line">  <span class="comment"># Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span></span><br><span class="line">  <span class="attr">active:</span></span><br><span class="line">  <span class="comment"># Setting `true` means remembering the comment system selected by the visitor</span></span><br><span class="line">  <span class="attr">storage:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Modify icons and texts for any style, here are some examples</span></span><br><span class="line">  <span class="attr">nav:</span></span><br><span class="line">    <span class="comment">#disqus:</span></span><br><span class="line">    <span class="comment">#  text: Load Disqus</span></span><br><span class="line">    <span class="comment">#  order: -1</span></span><br><span class="line">    <span class="comment">#gitalk:</span></span><br><span class="line">    <span class="comment">#  order: -2</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/docs/">DOCS</a></li>
+            <li><a href="/docs/third-party-services/">THIRD-PARTY-SERVICES</a></li>
+            <li>COMMENTS</li>
+          
+  </ul>
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Disqus"><span class="nav-number">1.</span> <span class="nav-text">Disqus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DisqusJS"><span class="nav-number">2.</span> <span class="nav-text">DisqusJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LiveRe"><span class="nav-number">3.</span> <span class="nav-text">LiveRe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitalk"><span class="nav-number">4.</span> <span class="nav-text">Gitalk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valine-China"><span class="nav-number">5.</span> <span class="nav-text">Valine (China)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Changyan-China"><span class="nav-number">6.</span> <span class="nav-text">Changyan (China)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Comment-System-Support"><span class="nav-number">7.</span> <span class="nav-text">Multiple Comment System Support</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PZHan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PZHan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rochan88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rochan88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:rochan@qq.com" title="E-Mail → mailto:rochan@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/592net" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;592net" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/irochan" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;irochan" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.rockhan.com/" title="http:&#x2F;&#x2F;www.rockhan.com" rel="noopener" target="_blank">rockhan</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian">
+      <img src="/uploads/icp.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏ICP备2020050420号 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32030002307146" rel="noopener" target="_blank">京公网安备 32030002307146 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PZHan</span>
+  博客已运行<span id="since"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT</a> v0.0.2
+  </div>
+<script src="/js/since.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+    <div id="aplayer-fixed"></div>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<div class="aplayer">
+<script>
+NexT.utils.loadComments(document.querySelector('#aplayer-fixed'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js', () => {
+    const apFixed = new APlayer({
+      element: document.getElementById('aplayer-fixed'),
+      mutex: true,
+      theme: '#97dffd',
+      order: 'random',
+      lrcType: 3,
+      fixed: true,
+    });
+    $.ajax({
+      url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=3102961863',
+      success: function (list) {
+        //console.log(typeof list);
+        apFixed.list.add(typeof list == 'string' ? JSON.parse(list):list);
+        //apFixed.list.add(JSON.parse(list));
+      }
+    });
+  },window.APlayer);
+});
+</script>
+</div>
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script src="/js/cursor/explosion.min.js"></script>
+
+  
+<script src="/js/FunnyTitle.js"></script>
+
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2MJCVa0G8jleIOwvB3YtyCW6-MdYXbMMI',
+      appKey     : 'N482Hc13XQ1i8n2ubIHE5oLl',
+      placeholder: "写下你的评论……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+</html>
